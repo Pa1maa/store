@@ -12,6 +12,7 @@ module Authentication
     end
   end
 
+
   private
     def authenticated?
       resume_session
@@ -31,6 +32,7 @@ module Authentication
 
     def request_authentication
       session[:return_to_after_authenticating] = request.url
+      # debugger
       redirect_to new_session_path
     end
 

@@ -1,4 +1,4 @@
-class SubscribersController < ApplicationController
+class SubscribersController < AuthController
   allow_unauthenticated_access
   before_action :set_product
 

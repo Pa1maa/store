@@ -1,4 +1,4 @@
-class UnsubscribesController < ApplicationController
+class UnsubscribesController < AuthController
   allow_unauthenticated_access
   before_action :set_subscriber
 

@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class ProductsController < AuthController
   allow_unauthenticated_access only: %i[ index show ]
   before_action :set_product, only: %i[ show edit update destroy ]
 
