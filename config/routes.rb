@@ -5,9 +5,16 @@ Rails.application.routes.draw do
   resource :unsubscribe, only: [ :show ]
 
 
-    resources :products do
-      resources :subscribers, only: [ :create ]
-    end
+  resources :products do
+    resources :subscribers, only: [ :create ]
+  end
+
+  namespace :settings do
+    resource :password, only: [ :show, :update ]
+    resource :profile, only: [ :show, :update ]
+
+    root to: redirect("/settings/profile")
+  end
 
 
   get "/products", to: "products#index"

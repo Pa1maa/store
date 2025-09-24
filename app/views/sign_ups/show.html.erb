@@ -1,5 +1,7 @@
 <h1>Sign Up</h1>
 
+<hr>
+
 <%= form_with model: @user, url: sign_up_path do |form| %>
     <% if form.object.errors.any? %>
         <div>Error: <%= form.object.errors.full_messages.first %></div>

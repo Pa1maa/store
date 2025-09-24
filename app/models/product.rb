@@ -7,10 +7,17 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :inventory_count, numericality: { greater_than_or_equal_to: 0 }
 
+  before_validation(on: :create) do
+    if self.inventory_count.blank?
+      self.inventory_count = 0
+    end
+  end
+
   after_update_commit :notify_subscribers, if: :back_in_stock?
 
   def back_in_stock?
-    inventory_count_previously_was.zero? && inventory_count > 0
+    return false unless persisted?
+    inventory_count_previously_was.to_i.zero? && inventory_count.to_i > 0
   end
 
   def notify_subscribers
