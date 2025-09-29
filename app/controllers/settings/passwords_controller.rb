@@ -1,4 +1,6 @@
 class Settings::PasswordsController < AuthController
+  layout "settings"
+
   def show
   end
 

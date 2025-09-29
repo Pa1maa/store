@@ -1,4 +1,6 @@
 class Settings::ProfilesController < AuthController
+  layout "settings"
+
   def show
   end
 
