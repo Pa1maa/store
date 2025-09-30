@@ -7,7 +7,7 @@ class SignUpsController < ApplicationController
 
   # unauthenticated_access_only
 
-  skip_before_action :require_authentication, only: [ :show, :create ]
+  # skip_before_action :require_authentication, only: [ :show, :create ]
 
   # allow_unauthenticated_access only: %i[ show create ]
 

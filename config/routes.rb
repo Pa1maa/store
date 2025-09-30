@@ -9,6 +9,13 @@ Rails.application.routes.draw do
     resources :subscribers, only: [ :create ]
   end
 
+  namespace :store do
+    resources :products
+    resources :users
+
+    root to: redirect("/store/products")
+  end
+
   namespace :settings do
     resource :email, only: [ :show, :update ]
     resource :password, only: [ :show, :update ]
